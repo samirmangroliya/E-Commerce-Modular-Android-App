@@ -2,10 +2,11 @@
 agp = "9.4.0"
 kotlin = "2.4.10"
 hilt = "2.60.1"
+javaVersion = "21"
 
-sdkCompile = "34"
-sdkMin = "21"
-sdkTarget = "34"
+sdkCompile = "37"       # was 34 — updated to match your file
+sdkMin = "25"           # was 21 — updated to match your file
+sdkTarget = "37"
 
 coreKtx = "1.19.0"
 junit = "4.13.2"
@@ -23,6 +24,9 @@ gson = "2.14.0"
 coroutines = "1.11.0"
 coil = "2.7.0"
 desugar = "2.1.5"
+appcompat = "1.8.0"
+material = "1.14.0"
+androidxTestRunner = "1.7.0"
 
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -39,6 +43,7 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
@@ -58,6 +63,8 @@ desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", ver
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 compose = ["androidx-compose-ui", "androidx-compose-material3", "androidx-hilt-navigation-compose"]
