@@ -78,3 +78,9 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
+#plugin defined by this app
+myapp-android-application = { id = "myapp.android.application" }
+myapp-android-library = { id = "my.android.library" }
+myapp-android-hilt = { id = "my.android.hilt" }
+myapp-android-compose = { id = "my.android.compose" }
+

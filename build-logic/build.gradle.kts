@@ -14,20 +14,20 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        register("androidLibrary") {
-            id = "convention.android.library"
-            implementationClass = "AndroidLibraryConventionPlugin"
-        }
         register("androidApplication") {
-            id = "convention.android.application"
+            id = libs.plugins.myapp.android.application.get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
+        register("androidLibrary") {
+            id = libs.plugins.myapp.android.library.get().pluginId
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
         register("androidHilt") {
-            id = "convention.android.hilt"
+            id = libs.plugins.myapp.android.hilt.get().pluginId
             implementationClass = "AndroidHiltConventionPlugin"
         }
         register("androidCompose") {
-            id = "convention.android.compose"
+            id = libs.plugins.myapp.android.compose.get().pluginId
             implementationClass = "AndroidComposeConventionPlugin"
         }
     }

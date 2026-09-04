@@ -1,4 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
+import common.configureBuildTypes
+import common.configureFlavors
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -26,8 +28,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 compileOptions {
                     sourceCompatibility = JavaVersion.toVersion(catalog.intVersion("javaVersion"))
                     targetCompatibility = JavaVersion.toVersion(catalog.intVersion("javaVersion"))
-
                 }
+
+                configureFlavors()      // ← dev/prod, single source of truth
+                configureBuildTypes()   // ← debug/release, single source of truth
             }
 
             dependencies {

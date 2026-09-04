@@ -26,4 +26,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "E-Commerce Modular App"
 include(":app")
+include(":core:common")
+include(":core:data")
+include(":core:navigation")
+include(":core:network")
+include(":core:ui")
  

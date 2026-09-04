@@ -1,6 +1,6 @@
 plugins {
-    id("convention.android.application")
-    id("convention.android.compose")
+    alias(libs.plugins.myapp.android.application)
+    alias(libs.plugins.myapp.android.compose)
 }
 
 android {
@@ -11,32 +11,6 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
-
-    flavorDimensions += "version"
-    productFlavors {
-        create("dev") {
-            dimension = "version"
-            applicationIdSuffix = ".dev"
-            versionNameSuffix = "-dev"
-        }
-        create("prod") {
-            dimension = "version"
-        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-        debug {
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
-        }
-    }
 }
 
 dependencies {
@@ -46,4 +20,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+
+    implementation(project(":core:common"))
+    implementation(project(":core:data"))
+    implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:network"))
 }
