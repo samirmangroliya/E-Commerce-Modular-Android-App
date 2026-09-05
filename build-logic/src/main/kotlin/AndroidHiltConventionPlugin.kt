@@ -1,49 +1,37 @@
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.dependencies
 
+// AndroidHiltConventionPlugin.kt — applies BOTH plugins internally, invisibly
 class AndroidHiltConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
-        val catalog = target.versionCatalog()
+        val libs = target.libs()
 
         with(target) {
-            apply(plugin = "com.google.devtools.ksp")
+            //Adding KSP Plugin
+            val kspPlugin = libs.findPlugin("ksp").orElseThrow {
+                NoSuchElementException("Missing plugin entry 'ksp' in gradle/libs.versions.toml")
+            }
+            pluginManager.apply(kspPlugin.get().pluginId)
 
+            //Adding Hilt Plugin
+            val hiltPlugin = libs.findPlugin("hilt-android").orElseThrow {
+                NoSuchElementException("Missing plugin entry 'hilt' in gradle/libs.versions.toml")
+            }
+            pluginManager.apply(hiltPlugin.get().pluginId)
+
+            //Adding Dependencies for Hilt-KSP
             dependencies {
-                "ksp"(catalog.findLibrary("hilt.compiler").get())
-                "ksp"(catalog.findLibrary("kotlin.metadata").get())
-            }
-
-            // Add support for Jvm Module, base on org.jetbrains.kotlin.jvm
-            pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
-                dependencies {
-                    "implementation"(catalog.findLibrary("hilt.core").get())
+                val hiltAndroid = libs.findLibrary("hilt-android").orElseThrow {
+                    NoSuchElementException("Missing library entry 'hilt-android' in gradle/libs.versions.toml")
                 }
-            }
-
-            /** Add support for Android modules, based on [AndroidBasePlugin] */
-            pluginManager.withPlugin("com.android.base") {
-                apply(plugin = "dagger.hilt.android.plugin")
-                dependencies {
-                    "implementation"(catalog.findLibrary("hilt.android").get())
+                val hiltCompiler = libs.findLibrary("hilt-compiler").orElseThrow {
+                    NoSuchElementException("Missing library entry 'hilt-compiler' in gradle/libs.versions.toml")
                 }
+
+                add("implementation", hiltAndroid)
+                add("ksp", hiltCompiler)
             }
         }
     }
-
-
-/*    override fun apply(target: Project) {
-        val catalog = target.versionCatalog()
-
-        with(target) {
-            pluginManager.apply("com.google.dagger.hilt.android")
-            pluginManager.apply("org.jetbrains.kotlin.kapt")
-
-            dependencies {
-                add("implementation", catalog.findLibrary("hilt-android").get())
-                add("kapt", catalog.findLibrary("hilt-compiler").get())
-            }
-        }
-    }*/
 }
