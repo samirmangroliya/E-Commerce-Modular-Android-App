@@ -20,14 +20,41 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app-mobile" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/analytics-api" />
+            <option value="$PROJECT_DIR$/core/analytics-firebase" />
             <option value="$PROJECT_DIR$/core/common" />
             <option value="$PROJECT_DIR$/core/data" />
+            <option value="$PROJECT_DIR$/core/database" />
+            <option value="$PROJECT_DIR$/core/domain" />
+            <option value="$PROJECT_DIR$/core/model" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/core/ui" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/auth" />
+            <option value="$PROJECT_DIR$/feature/auth/auth-domain" />
+            <option value="$PROJECT_DIR$/feature/auth/auth-mobile" />
+            <option value="$PROJECT_DIR$/feature/cart" />
+            <option value="$PROJECT_DIR$/feature/cart/cart-domain" />
+            <option value="$PROJECT_DIR$/feature/cart/cart-mobile" />
+            <option value="$PROJECT_DIR$/feature/checkout" />
+            <option value="$PROJECT_DIR$/feature/checkout/checkout-domain" />
+            <option value="$PROJECT_DIR$/feature/checkout/checkout-mobile" />
+            <option value="$PROJECT_DIR$/feature/home" />
+            <option value="$PROJECT_DIR$/feature/home/home-domain" />
+            <option value="$PROJECT_DIR$/feature/home/home-mobile" />
+            <option value="$PROJECT_DIR$/feature/order" />
+            <option value="$PROJECT_DIR$/feature/order/order-domain" />
+            <option value="$PROJECT_DIR$/feature/order/order-mobile" />
+            <option value="$PROJECT_DIR$/feature/product" />
+            <option value="$PROJECT_DIR$/feature/product/product-domain" />
+            <option value="$PROJECT_DIR$/feature/product/product-mobile" />
+            <option value="$PROJECT_DIR$/feature/profile" />
+            <option value="$PROJECT_DIR$/feature/profile/profile-domain" />
+            <option value="$PROJECT_DIR$/feature/profile/profile-mobile" />
           </set>
         </option>
       </GradleProjectSettings>

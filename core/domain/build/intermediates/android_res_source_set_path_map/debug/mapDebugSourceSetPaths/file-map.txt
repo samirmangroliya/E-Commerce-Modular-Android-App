@@ -1,0 +1,9 @@
+com.samir.domain-pngs-0 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/build/generated/res/pngs/debug
+com.samir.domain-updated_navigation_xml-1 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/build/generated/updated_navigation_xml/debug
+com.samir.domain-mergeDebugResources-2 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.samir.domain-mergeDebugResources-3 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.samir.domain-debug-4 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/build/intermediates/merged_res/debug/mergeDebugResources
+com.samir.domain-debug-5 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/build/intermediates/packaged_res/debug/packageDebugResources
+com.samir.domain-debug-6 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/src/debug/res
+com.samir.domain-main-7 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/domain/src/main/res
+gradleHome-0 /Users/samir/.gradle
