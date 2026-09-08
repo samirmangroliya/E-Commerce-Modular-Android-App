@@ -1,0 +1,9 @@
+com.samir.network-pngs-0 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/generated/res/pngs/debug
+com.samir.network-updated_navigation_xml-1 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/generated/updated_navigation_xml/debug
+com.samir.network-mergeDebugResources-2 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.samir.network-mergeDebugResources-3 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.samir.network-debug-4 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/merged_res/debug/mergeDebugResources
+com.samir.network-debug-5 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/packaged_res/debug/packageDebugResources
+com.samir.network-debug-6 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/src/debug/res
+com.samir.network-main-7 /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/src/main/res
+gradleHome-0 /Users/samir/.gradle

@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml:2:13-83
+INJECTED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml:2:13-83
+	package
+		INJECTED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml
+	xmlns:android
+		ADDED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml:2:23-81
+uses-sdk
+INJECTED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml reason: use-sdk injection requested
+INJECTED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml
+INJECTED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml
+	android:targetSdkVersion
+		INJECTED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml
+	android:minSdkVersion
+		INJECTED from /Users/samir/AndroidStudioProjects/ECommerceModularApp/core/network/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2637989412596973107.xml

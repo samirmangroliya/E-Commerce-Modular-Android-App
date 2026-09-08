@@ -1,0 +1,1 @@
+-keep,allowobfuscation,allowshrinking class com.samir.home.domain.HomeViewModel

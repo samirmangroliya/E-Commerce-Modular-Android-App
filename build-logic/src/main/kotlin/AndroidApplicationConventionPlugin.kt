@@ -19,7 +19,15 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
             pluginManager.apply(applicationPlugin.get().pluginId)
 
-            //2. SDK, compileOptions, flavors, build type
+            //2. Apply Google Service Plugin
+            val googleServicesPlugin =  libs.findPlugin("google-services").orElseThrow {
+                NoSuchElementException(
+                    "Missing plugin entry 'google-services' in libs.versions.toml"
+                )
+            }
+            pluginManager.apply(googleServicesPlugin.get().pluginId)
+
+            //3. SDK, compileOptions, flavors, build type
             extensions.configure<ApplicationExtension> {
                 compileSdk {
                     version = release(libs.getRequiredVersionInt("sdkCompile"))
@@ -45,7 +53,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 configureBuildTypes()   // ← debug/release, single source of truth
             }
 
-            //3 dependencies
+            //4 dependencies
             dependencies {
                 val androidxTestRunner = libs.findLibrary("androidx-test-runner").orElseThrow {
                     NoSuchElementException("Missing library entry 'androidx-test-runner' in gradle/libs.versions.toml")

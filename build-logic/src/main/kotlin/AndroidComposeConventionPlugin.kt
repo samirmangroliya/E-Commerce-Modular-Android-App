@@ -52,6 +52,12 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
                     NoSuchElementException("Missing library entry 'androidx-compose-ui-tooling-preview' in gradle/libs.versions.toml")
                 }
                 add("implementation", composeToolingPreview)
+
+                // 5. Compose UI Tooling (Required for Previews)
+                val composeTooling = libs.findLibrary("androidx-compose-ui-tooling").orElseThrow {
+                    NoSuchElementException("Missing library entry 'androidx-compose-ui-tooling' in gradle/libs.versions.toml")
+                }
+                add("debugImplementation", composeTooling)
             }
         }
     }
