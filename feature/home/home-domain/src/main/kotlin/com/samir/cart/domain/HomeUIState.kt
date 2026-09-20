@@ -1,7 +1,7 @@
 package com.samir.cart.domain
 
+import com.samir.commonproduct.domain.ProductSortOrder
 import com.samir.model.Product
-import com.samir.domain.ProductSortOrder
 
 data class HomeUIState(
     val products: List<Product> = emptyList(),

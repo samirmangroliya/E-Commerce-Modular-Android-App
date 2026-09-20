@@ -5,11 +5,11 @@ import androidx.lifecycle.viewModelScope
 import com.samir.analytics.common.AnalyticsTracker
 import com.samir.analytics.events.ProductAnalyticsEvent
 import com.samir.common.network.NetworkResult
-import com.samir.domain.GetProductsUseCase
+import com.samir.commonproduct.domain.GetProductsUseCase
+import com.samir.commonproduct.domain.ProductSortOrder
+import com.samir.commonproduct.domain.SearchProductsUseCase
+import com.samir.commonproduct.domain.SortProductsUseCase
 import com.samir.model.Product
-import com.samir.domain.ProductSortOrder
-import com.samir.domain.SearchProductsUseCase
-import com.samir.domain.SortProductsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,10 +17,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/**
- * Shared by BOTH home-mobile and home-tv. Neither Compose UI knows about
- * GetProductsUseCase, ProductRepository, or dummyjson — they only ever see this class.
- */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getProductsUseCase: GetProductsUseCase,

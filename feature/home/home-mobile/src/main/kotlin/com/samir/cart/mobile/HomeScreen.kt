@@ -1,34 +1,40 @@
 package com.samir.cart.mobile
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material3.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import coil.compose.AsyncImage
-import com.samir.model.Product
+import com.samir.commonproductui.ProductGrid
 import com.samir.cart.domain.HomeUIState
 import com.samir.cart.domain.HomeViewModel
+import com.samir.model.Product
 import com.samir.ui.ErrorView
 import com.samir.ui.LoadingView
-import com.samir.ui.PriceTag
 
 @Composable
 fun HomeScreen(
+    modifier: Modifier,
+    onProductClick: (Product) -> Unit,
     onCartClick: () -> Unit,
     viewModel: HomeViewModel? = null,
 ) {
@@ -110,48 +116,6 @@ fun HomeScreenContent(
                     onProductClick = onProductClick,
                     modifier = Modifier.weight(1f),
                 )
-            }
-        }
-    }
-}
-
-@Composable
-private fun ProductGrid(
-    products: List<Product>,
-    onProductClick: (Product) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2), // tablet adaptivity note below
-        contentPadding = PaddingValues(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-        modifier = modifier.fillMaxSize(),
-    ) {
-        items(products, key = { it.id }) { product ->
-            ProductCard(product = product, onClick = { onProductClick(product) })
-        }
-    }
-}
-
-@Composable
-private fun ProductCard(product: Product, onClick: () -> Unit) {
-    Card(onClick = onClick, shape = RoundedCornerShape(12.dp)) {
-        Column(modifier = Modifier.padding(8.dp)) {
-            AsyncImage(
-                model = product.thumbnail,
-                contentDescription = product.title,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
-                    .clip(RoundedCornerShape(8.dp)),
-            )
-            Spacer(Modifier.height(8.dp))
-            Text(text = product.title, style = MaterialTheme.typography.bodyMedium, maxLines = 1)
-            Spacer(Modifier.height(4.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                PriceTag(price = product.discountedPrice)
             }
         }
     }
