@@ -4,14 +4,13 @@ import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.getByType
 
-internal fun Project.versionCatalog(): VersionCatalog =
+internal fun Project.libs(): VersionCatalog =
     extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-internal fun VersionCatalog.intVersion(alias: String): Int {
-    val version = findVersion(alias)
-    require(version.isPresent) {
-        "Version alias '$alias' not found in libs.versions.toml [versions] block. " +
-                "Check for a typo or a missing entry."
-    }
-    return version.get().requiredVersion.toInt()
+// Safe version helper with clear custom exception throwing
+fun VersionCatalog.getRequiredVersionInt(key: String): Int {
+    return findVersion(key)
+        .orElseThrow { NoSuchElementException("Missing version entry '$key' in gradle/libs.versions.toml") }
+        .requiredVersion
+        .toInt()
 }

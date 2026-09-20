@@ -6,13 +6,15 @@ import org.gradle.kotlin.dsl.dependencies
 
 class AndroidComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
-        val catalog = target.versionCatalog()
+        val libs = target.libs()
 
         with(target) {
-            // Applies the Compose compiler plugin (Kotlin 2.0+)
-            pluginManager.apply(
-                catalog.findPlugin("kotlin-compose").get().get().pluginId
-            )
+
+            //Adding Compose compiler plugin (Kotlin 2.0+)
+            val kotlinComposePlugin = libs.findPlugin("kotlin-compose").orElseThrow {
+                NoSuchElementException("Missing plugin entry 'kotlin-compose' in gradle/libs.versions.toml")
+            }
+            pluginManager.apply(kotlinComposePlugin.get().pluginId)
 
             // Resolve and configure properties on the explicit extension instance
             val applicationExtension = extensions.findByType(ApplicationExtension::class.java)
@@ -27,10 +29,35 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-                add("implementation", platform(catalog.findLibrary("androidx-compose-bom").get()))
-                add("implementation", catalog.findBundle("compose").get())
-                add("implementation", catalog.findLibrary("coil-compose").get())
-                add("implementation", catalog.findLibrary("androidx-compose-ui-tooling-preview").get())
+                // 1. Compose BOM (Platform)
+                val composeBom = libs.findLibrary("androidx-compose-bom").orElseThrow {
+                    NoSuchElementException("Missing library entry 'androidx-compose-bom' in gradle/libs.versions.toml")
+                }
+                add("implementation", platform(composeBom))
+
+                // 2. Compose Bundle
+                val composeBundle = libs.findBundle("compose").orElseThrow {
+                    NoSuchElementException("Missing bundle entry 'compose' in gradle/libs.versions.toml")
+                }
+                add("implementation", composeBundle)
+
+                // 3. Coil Compose
+                val coilCompose = libs.findLibrary("coil-compose").orElseThrow {
+                    NoSuchElementException("Missing library entry 'coil-compose' in gradle/libs.versions.toml")
+                }
+                add("implementation", coilCompose)
+
+                // 4. Compose UI Tooling Preview
+                val composeToolingPreview = libs.findLibrary("androidx-compose-ui-tooling-preview").orElseThrow {
+                    NoSuchElementException("Missing library entry 'androidx-compose-ui-tooling-preview' in gradle/libs.versions.toml")
+                }
+                add("implementation", composeToolingPreview)
+
+                // 5. Compose UI Tooling (Required for Previews)
+                val composeTooling = libs.findLibrary("androidx-compose-ui-tooling").orElseThrow {
+                    NoSuchElementException("Missing library entry 'androidx-compose-ui-tooling' in gradle/libs.versions.toml")
+                }
+                add("debugImplementation", composeTooling)
             }
         }
     }

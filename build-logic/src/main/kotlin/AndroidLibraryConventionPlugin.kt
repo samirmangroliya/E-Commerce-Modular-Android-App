@@ -8,23 +8,34 @@ import org.gradle.kotlin.dsl.dependencies
 // AndroidLibraryConventionPlugin.kt — if you still have this from the multi-module version
 class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
-        val catalog = target.versionCatalog()
+        val libs = target.libs()
 
         with(target) {
-            pluginManager.apply("com.android.library")
-            // REMOVED here too: pluginManager.apply("org.jetbrains.kotlin.android")
+            //Adding library Plugin
+            val libraryPlugin = libs.findPlugin("android-library").orElseThrow {
+                NoSuchElementException("Missing plugin entry 'android-library' in gradle/libs.versions.toml")
+            }
+
+            pluginManager.apply(libraryPlugin.get().pluginId)
 
             extensions.configure<LibraryExtension> {
-                compileSdk = catalog.intVersion("sdkCompile")
-                defaultConfig { minSdk = catalog.intVersion("sdkMin") }
+                compileSdk = libs.getRequiredVersionInt("sdkCompile")
+                defaultConfig { minSdk = libs.getRequiredVersionInt("sdkMin") }
                 compileOptions {
-                    sourceCompatibility = JavaVersion.toVersion(catalog.intVersion("javaVersion"))
-                    targetCompatibility = JavaVersion.toVersion(catalog.intVersion("javaVersion"))
+                    val javaVersionInt = JavaVersion.toVersion(libs.getRequiredVersionInt("javaVersion"))
+                    sourceCompatibility = javaVersionInt
+                    targetCompatibility = javaVersionInt
+                }
+                buildFeatures {
+                    buildConfig = true
                 }
             }
 
             dependencies {
-                add("implementation", catalog.findLibrary("coroutines-android").get())
+                val coroutinesAndroid = libs.findLibrary("coroutines-android").orElseThrow {
+                    NoSuchElementException("Missing library entry 'coroutines-android' in gradle/libs.versions.toml")
+                }
+                add("implementation", coroutinesAndroid)
             }
         }
     }

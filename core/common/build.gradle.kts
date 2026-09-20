@@ -3,5 +3,5 @@ plugins {
 }
 
 android {
-    namespace = "com.samir.data"
+    namespace = "com.samir.common"
 }

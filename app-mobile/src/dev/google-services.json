@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "500491830024",
+    "project_id": "e-commerce-modular-app-d890e",
+    "storage_bucket": "e-commerce-modular-app-d890e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500491830024:android:926ac72857de52d7f5a2bd",
+        "android_client_info": {
+          "package_name": "com.samir.ecommerceapp.dev.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvQx5MFtp51qX004jZprQgrl6OqM4blAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,15 @@
+plugins {
+    alias(libs.plugins.myapp.android.library)
+    alias(libs.plugins.myapp.android.hilt)
+}
+
+android {
+    namespace = "com.samir.profile.mobile"
+}
+
+dependencies {
+    implementation(project(":core:common"))
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.coroutines.android)
+}
