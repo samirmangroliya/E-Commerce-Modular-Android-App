@@ -10,7 +10,6 @@ android {
 
 dependencies {
     implementation(project(":feature:auth:auth-domain"))
-    implementation(project(":core:domain"))
     implementation(project(":core:ui"))
 
 

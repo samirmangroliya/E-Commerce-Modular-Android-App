@@ -4,12 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.samir.cart.domain"
+    namespace = "com.samir.home.domain"
 }
 
 dependencies {
     implementation(project(":core:common"))
-    implementation(project(":core:domain"))
     implementation(project(":core:model"))
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

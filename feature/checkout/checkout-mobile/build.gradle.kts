@@ -10,7 +10,6 @@ android {
 
 dependencies {
     implementation(project(":feature:checkout:checkout-domain"))
-    implementation(project(":core:domain"))
     implementation(project(":core:ui"))
     implementation(project(":core:model"))
 

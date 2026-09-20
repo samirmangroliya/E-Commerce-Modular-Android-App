@@ -5,12 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.samir.cart.mobile"
+    namespace = "com.samir.home.mobile"
 }
 
 dependencies {
     implementation(project(":feature:cart:cart-domain"))
-    implementation(project(":core:domain"))
     implementation(project(":core:ui"))
     implementation(project(":core:model"))
 

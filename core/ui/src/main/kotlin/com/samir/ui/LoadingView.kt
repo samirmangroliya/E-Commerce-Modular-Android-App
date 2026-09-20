@@ -65,18 +65,3 @@ fun ErrorView(
         }
     }
 }
-
-@Composable
-fun PriceTag(price: Double, modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier
-            .background(MaterialTheme.colorScheme.secondary, RoundedCornerShape(6.dp))
-            .padding(horizontal = 8.dp, vertical = 4.dp),
-    ) {
-        Text(
-            text = "$${"%.2f".format(price)}",
-            color = Color.White,
-            style = MaterialTheme.typography.labelLarge,
-        )
-    }
-}

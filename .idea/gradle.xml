@@ -26,13 +26,13 @@
             <option value="$PROJECT_DIR$/core/analytics-api" />
             <option value="$PROJECT_DIR$/core/analytics-firebase" />
             <option value="$PROJECT_DIR$/core/common" />
-            <option value="$PROJECT_DIR$/core/data" />
             <option value="$PROJECT_DIR$/core/database" />
-            <option value="$PROJECT_DIR$/core/domain" />
             <option value="$PROJECT_DIR$/core/model" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/core/ui" />
+            <option value="$PROJECT_DIR$/dynamicfeature" />
+            <option value="$PROJECT_DIR$/dynamicfeature/chat" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/auth" />
             <option value="$PROJECT_DIR$/feature/auth/auth-domain" />
@@ -43,6 +43,8 @@
             <option value="$PROJECT_DIR$/feature/checkout" />
             <option value="$PROJECT_DIR$/feature/checkout/checkout-domain" />
             <option value="$PROJECT_DIR$/feature/checkout/checkout-mobile" />
+            <option value="$PROJECT_DIR$/feature/common-product" />
+            <option value="$PROJECT_DIR$/feature/common-product-ui" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/home/home-domain" />
             <option value="$PROJECT_DIR$/feature/home/home-mobile" />

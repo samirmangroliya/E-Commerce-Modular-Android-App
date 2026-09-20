@@ -6,3 +6,9 @@ plugins {
 android {
     namespace = "com.samir.ui"
 }
+
+dependencies {
+    implementation(project(":core:model"))
+
+    implementation(libs.androidx.compose.material.icons.extended)
+}

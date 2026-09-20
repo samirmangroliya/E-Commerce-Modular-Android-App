@@ -31,5 +31,9 @@ gradlePlugin {
             id = libs.plugins.myapp.android.compose.get().pluginId
             implementationClass = "AndroidComposeConventionPlugin"
         }
+        register("androidDynamicFeature") {
+            id = libs.plugins.myapp.android.dynamic.feature.get().pluginId
+            implementationClass = "AndroidDynamicFeatureConventionPlugin"
+        }
     }
 }

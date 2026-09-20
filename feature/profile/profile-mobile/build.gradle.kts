@@ -10,9 +10,7 @@ android {
 
 dependencies {
     implementation(project(":feature:profile:profile-domain"))
-    implementation(project(":core:domain"))
     implementation(project(":core:ui"))
-
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.coroutines.android)

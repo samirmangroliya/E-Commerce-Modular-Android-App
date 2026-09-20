@@ -1,1 +1,4 @@
 /build
+# Firebase
+/src/dev/goo
+/src/prod/

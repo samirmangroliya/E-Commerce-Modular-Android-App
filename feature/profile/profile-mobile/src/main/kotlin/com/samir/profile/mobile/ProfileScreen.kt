@@ -15,11 +15,11 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.samir.profile.domain.ProfileUIState
 import com.samir.profile.domain.ProfileViewModel
+import com.samir.ui.ErrorView
+import com.samir.ui.LoadingView
 
 @Composable
 fun ProfileScreen(
-    onProductClick: (Int) -> Unit,
-    onCartClick: () -> Unit,
     viewModel: ProfileViewModel? = null,
 ) {
     if (LocalInspectionMode.current && viewModel == null) {
@@ -47,10 +47,18 @@ fun ProfileScreenContent(
             )
         },
     ) { padding ->
-        Column(modifier = Modifier
-            .padding(padding)
-            .fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .padding(padding)
+                .fillMaxSize()
+        ) {
+            when {
+                state.isLoading -> LoadingView(modifier = Modifier.weight(1f))
+                state.errorMessage != null -> {}
 
+                else -> {
+                }
+            }
         }
     }
 }

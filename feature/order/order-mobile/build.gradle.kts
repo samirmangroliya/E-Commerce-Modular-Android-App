@@ -10,7 +10,6 @@ android {
 
 dependencies {
     implementation(project(":feature:order:order-domain"))
-    implementation(project(":core:domain"))
     implementation(project(":core:ui"))
     implementation(project(":core:model"))
 
