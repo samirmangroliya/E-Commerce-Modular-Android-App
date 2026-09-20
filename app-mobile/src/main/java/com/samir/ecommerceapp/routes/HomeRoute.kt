@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.samir.ecommerceapp.chat.ChatModuleLauncher
-import com.samir.cart.mobile.HomeScreen
+import com.samir.home.mobile.HomeScreen
 
 @Composable
 fun HomeRoute(

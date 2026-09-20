@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.samir.cart.mobile"
+    namespace = "com.samir.product.mobile"
 }
 
 dependencies {

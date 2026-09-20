@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.samir.profile.mobile"
+    namespace = "com.samir.profile.domain"
 }
 
 dependencies {

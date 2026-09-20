@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.samir.cart.domain"
+    namespace = "com.samir.home.domain"
 }
 
 dependencies {

@@ -7,13 +7,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
-
 @HiltViewModel
 class ProfileViewModel @Inject constructor() : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProfileUIState(isLoading = true))
     val uiState: StateFlow<ProfileUIState> = _uiState.asStateFlow()
-
-
-
 }

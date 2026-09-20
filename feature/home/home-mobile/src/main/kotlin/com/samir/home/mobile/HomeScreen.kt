@@ -1,4 +1,4 @@
-package com.samir.cart.mobile
+package com.samir.home.mobile
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,8 +25,8 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.samir.commonproductui.ProductGrid
-import com.samir.cart.domain.HomeUIState
-import com.samir.cart.domain.HomeViewModel
+import com.samir.home.domain.HomeUIState
+import com.samir.home.domain.HomeViewModel
 import com.samir.model.Product
 import com.samir.ui.ErrorView
 import com.samir.ui.LoadingView

@@ -1,9 +1,9 @@
-package com.samir.cart.domain
+package com.samir.product.domain
 
 import com.samir.commonproduct.domain.ProductSortOrder
 import com.samir.model.Product
 
-data class HomeUIState(
+data class ProductUIState(
     val products: List<Product> = emptyList(),
     val searchQuery: String = "",
     val sortOrder: ProductSortOrder = ProductSortOrder.RatingHighToLow,
