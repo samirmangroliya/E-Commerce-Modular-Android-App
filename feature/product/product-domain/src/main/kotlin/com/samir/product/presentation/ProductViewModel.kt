@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.collections.copy
 
 @HiltViewModel
 class ProductViewModel @Inject constructor(
@@ -41,10 +40,12 @@ class ProductViewModel @Inject constructor(
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }
@@ -66,10 +67,12 @@ class ProductViewModel @Inject constructor(
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }

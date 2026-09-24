@@ -15,7 +15,7 @@ class CheckoutViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(CheckoutUIState(isLoading = true))
     val uiState: StateFlow<CheckoutUIState> = _uiState.asStateFlow()
 
-    fun loadCheckout(){
+    fun loadCheckout() {
 
     }
 }

@@ -43,10 +43,12 @@ class HomeViewModel @Inject constructor(
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }
@@ -68,10 +70,12 @@ class HomeViewModel @Inject constructor(
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }

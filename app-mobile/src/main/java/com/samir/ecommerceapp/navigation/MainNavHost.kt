@@ -5,13 +5,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import com.samir.cart.mobile.CartScreen
 import com.samir.cart.mobile.navigation.CartNavigation
 import com.samir.checkout.mobile.navigation.CheckoutNavigation
 import com.samir.ecommerceapp.chat.ChatModuleLauncher
 import com.samir.home.navigation.HomeNavigation
-import com.samir.home.route.HomeRoute
 import com.samir.navigation.AppRoutes
 import com.samir.navigation.AppRoutes.productDetailsRoute
 import com.samir.order.mobile.navigation.OrderNavigation

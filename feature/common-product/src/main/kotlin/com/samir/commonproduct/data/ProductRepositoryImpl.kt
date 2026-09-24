@@ -1,9 +1,9 @@
 package com.samir.commonproduct.data
 
-import com.samir.model.Product
-import com.samir.commonproduct.domain.ProductRepository
-import com.samir.common.network.safeApiCall
 import com.samir.common.network.NetworkResult
+import com.samir.common.network.safeApiCall
+import com.samir.commonproduct.domain.ProductRepository
+import com.samir.model.Product
 import javax.inject.Inject
 
 

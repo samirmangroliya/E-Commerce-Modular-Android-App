@@ -47,7 +47,6 @@ fun DeliverySection(
             ) {
 
 
-
                 product.shippingInformation.let { shippingInfo ->
                     Text(
                         text = "Delivery at Home",

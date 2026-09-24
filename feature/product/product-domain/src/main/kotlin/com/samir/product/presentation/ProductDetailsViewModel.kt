@@ -60,32 +60,32 @@ class ProductDetailsViewModel @Inject constructor(
         }
     }
 
-    fun addToCart(product: Product, id:Int){
+    fun addToCart(product: Product, id: Int) {
 
     }
 
-    fun buyNow(product: Product, id:Int){
+    fun buyNow(product: Product, id: Int) {
 
     }
 
-    fun increaseQuantity(product: Product, id:Int){
+    fun increaseQuantity(product: Product, id: Int) {
 
     }
 
-    fun decreaseQuantity(product: Product, id:Int){
+    fun decreaseQuantity(product: Product, id: Int) {
 
     }
 
-    fun shareProduct(product: Product){
+    fun shareProduct(product: Product) {
 
     }
 
-    fun changeAddress(){
+    fun changeAddress() {
 
     }
 
 
-    fun toggleWishlist(product: Product){
+    fun toggleWishlist(product: Product) {
 
     }
 }

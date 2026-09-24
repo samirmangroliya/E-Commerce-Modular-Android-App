@@ -30,7 +30,7 @@ data class Product(
 }
 
 data class Review(
-    val rating:Double,
+    val rating: Double,
     val comment: String,
     val reviewerName: String,
 )

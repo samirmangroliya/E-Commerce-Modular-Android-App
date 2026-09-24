@@ -5,6 +5,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.samir.product.mobile.screens.ProductDetailsScreen
 import com.samir.product.presentation.ProductDetailsViewModel
+
 @Composable
 fun ProductDetailsRoute(
     onBack: () -> Unit

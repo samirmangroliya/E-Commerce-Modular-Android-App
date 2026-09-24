@@ -1,6 +1,7 @@
 package com.samir.analytics.common
 
 import android.os.Bundle
+
 sealed interface AnalyticsValue {
 
     data class StringValue(

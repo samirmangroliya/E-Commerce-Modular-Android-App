@@ -17,7 +17,6 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.samir.profile.domain.ProfileUIState
 import com.samir.profile.domain.ProfileViewModel
-import com.samir.ui.LoadingView
 
 @Composable
 fun ProfileScreen(

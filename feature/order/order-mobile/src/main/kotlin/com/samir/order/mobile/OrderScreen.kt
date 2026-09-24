@@ -17,8 +17,6 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.samir.order.domain.OrderUIState
 import com.samir.order.domain.OrderViewModel
-import com.samir.ui.ErrorView
-import com.samir.ui.LoadingView
 
 @Composable
 fun OrderScreen(
