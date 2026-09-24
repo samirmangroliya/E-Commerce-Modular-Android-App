@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.samir.product.domain"
+    namespace = "com.samir.product"
 }
 
 dependencies {

@@ -1,4 +1,4 @@
-package com.samir.product.domain
+package com.samir.product.presentation
 
 import com.samir.commonproduct.domain.ProductSortOrder
 import com.samir.model.Product

@@ -11,6 +11,7 @@ android {
 dependencies {
     implementation(project(":feature:profile:profile-domain"))
     implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.coroutines.android)

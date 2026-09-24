@@ -21,15 +21,16 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.samir.commonproductui.ProductGrid
+import com.samir.commonproductui.ProductList
 import com.samir.model.Product
-import com.samir.product.domain.ProductUIState
-import com.samir.product.domain.ProductViewModel
+import com.samir.product.presentation.ProductUIState
+import com.samir.product.presentation.ProductViewModel
 import com.samir.ui.ErrorView
 import com.samir.ui.LoadingView
 
 @Composable
 fun ProductScreen(
-    onProductClick: (Product) -> Unit,
+    onProductClick: (Int) -> Unit,
     onCartClick: () -> Unit,
     viewModel: ProductViewModel? = null,
 ) {
@@ -58,7 +59,7 @@ fun ProductScreen(
 @Composable
 fun ProductScreenContent(
     state: ProductUIState,
-    onProductClick: (Product) -> Unit,
+    onProductClick: (Int) -> Unit,
     onCartClick: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onRetry: () -> Unit,
@@ -66,7 +67,7 @@ fun ProductScreenContent(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("E-Shop") },
+                title = { Text("Product") },
                 actions = {
                     IconButton(onClick = onCartClick) {
                         Icon(Icons.Default.ShoppingCart, contentDescription = "Cart")
@@ -75,19 +76,11 @@ fun ProductScreenContent(
             )
         },
     ) { padding ->
-        Column(modifier = Modifier
-            .padding(padding)
-            .fillMaxSize()) {
-
-            OutlinedTextField(
-                value = state.searchQuery,
-                onValueChange = onSearchQueryChanged,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                label = { Text("Search products (e.g. phone)") },
-                singleLine = true,
-            )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = padding.calculateTopPadding())
+        ) {
 
             when {
                 state.isLoading -> LoadingView(modifier = Modifier.weight(1f))
@@ -97,9 +90,11 @@ fun ProductScreenContent(
                     onRetry = onRetry,
                 )
 
-                else -> ProductGrid(
+                else -> ProductList(
                     products = state.products,
-                    onProductClick = onProductClick,
+                    onProductClick = {
+                        onProductClick(it.id)
+                    },
                     modifier = Modifier.weight(1f),
                 )
             }

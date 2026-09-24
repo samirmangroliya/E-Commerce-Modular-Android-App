@@ -16,10 +16,21 @@ data class Product(
     val category: String,
     val thumbnail: String,
     val images: List<String>,
+    val reviews: List<Review>?,
+    val warrantyInformation: String,
+    val shippingInformation: String,
+    val availabilityStatus: String,
+    val returnPolicy: String
 ) {
     val discountedPrice: Double
         get() = price - (price * discountPercentage / 100)
 
-    val isInStock: Boolean
+    val isAvailable: Boolean
         get() = stock > 0
 }
+
+data class Review(
+    val rating:Double,
+    val comment: String,
+    val reviewerName: String,
+)

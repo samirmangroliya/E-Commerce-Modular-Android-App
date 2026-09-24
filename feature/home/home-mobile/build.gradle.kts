@@ -13,6 +13,7 @@ dependencies {
     implementation(project(":feature:common-product-ui"))
     implementation(project(":core:model"))
     implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
 
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

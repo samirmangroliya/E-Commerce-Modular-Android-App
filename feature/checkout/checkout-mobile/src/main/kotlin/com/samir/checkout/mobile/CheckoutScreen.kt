@@ -1,5 +1,6 @@
 package com.samir.checkout.mobile
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -10,13 +11,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.samir.checkout.domain.CheckoutUIState
 import com.samir.checkout.domain.CheckoutViewModel
-import com.samir.ui.ErrorView
-import com.samir.ui.LoadingView
 
 @Composable
 fun CheckoutScreen(
@@ -41,34 +41,26 @@ fun CheckoutScreen(
 @Composable
 fun CheckoutScreenContent(
     state: CheckoutUIState,
-    onRetry: () -> Unit,
+    onRetry: () -> Unit
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Checkout") },
-                actions = {
-
-                },
+                title = { Text("Profile") },
             )
         },
     ) { padding ->
+
         Column(
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
+                .padding(top = padding.calculateTopPadding()),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            when {
-                state.isLoading -> LoadingView(modifier = Modifier.weight(1f))
-                state.errorMessage != null -> ErrorView(
-                    message = state.errorMessage ?: "",
-                    modifier = Modifier.weight(1f),
-                    onRetry = onRetry,
-                )
+            Text("Profile Screen is under development...")
 
-                else -> {}
-            }
         }
     }
 }

@@ -14,4 +14,9 @@ internal fun ProductDto.toDomain(): Product = Product(
     category = category,
     thumbnail = thumbnail,
     images = images,
+    reviews = reviews,
+    warrantyInformation = warrantyInformation,
+    shippingInformation = shippingInformation,
+    availabilityStatus = availabilityStatus,
+    returnPolicy = returnPolicy,
 )

@@ -1,6 +1,7 @@
 package com.samir.commonproduct.data
 
 import com.google.gson.annotations.SerializedName
+import com.samir.model.Review
 
 
 data class ProductListResponseDto(
@@ -22,4 +23,9 @@ data class ProductDto(
     @SerializedName("category") val category: String,
     @SerializedName("thumbnail") val thumbnail: String,
     @SerializedName("images") val images: List<String>,
+    @SerializedName("reviews") val reviews: List<Review>,
+    @SerializedName("warrantyInformation") val warrantyInformation: String,
+    @SerializedName("shippingInformation") val shippingInformation: String,
+    @SerializedName("availabilityStatus") val availabilityStatus: String,
+    @SerializedName("returnPolicy") val returnPolicy: String,
 )
