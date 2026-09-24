@@ -43,10 +43,12 @@ class HomeViewModel @Inject constructor(
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }
@@ -68,10 +70,12 @@ class HomeViewModel @Inject constructor(
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }
@@ -87,7 +91,7 @@ class HomeViewModel @Inject constructor(
         _uiState.value = _uiState.value.copy(products = sorted)
     }
 
-    fun onProductClicked(product: Product) {
+    fun logProductClick(product: Product) {
         analyticsTracker.log(
             ProductAnalyticsEvent.Viewed(
                 productId = product.id,

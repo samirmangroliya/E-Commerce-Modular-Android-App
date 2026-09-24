@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.samir.navigation"
 }
+
+dependencies {
+    api(libs.androidx.navigation.compose)
+}

@@ -22,7 +22,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 compileSdk = libs.getRequiredVersionInt("sdkCompile")
                 defaultConfig { minSdk = libs.getRequiredVersionInt("sdkMin") }
                 compileOptions {
-                    val javaVersionInt = JavaVersion.toVersion(libs.getRequiredVersionInt("javaVersion"))
+                    val javaVersionInt =
+                        JavaVersion.toVersion(libs.getRequiredVersionInt("javaVersion"))
                     sourceCompatibility = javaVersionInt
                     targetCompatibility = javaVersionInt
                 }

@@ -1,6 +1,7 @@
 package com.samir.common.network
 
 import java.io.IOException
+
 suspend fun <T> safeApiCall(apiCall: suspend () -> T): NetworkResult<T> {
     return try {
         NetworkResult.Success(apiCall())

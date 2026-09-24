@@ -1,4 +1,4 @@
-package com.samir.product.domain
+package com.samir.product.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,13 +9,11 @@ import com.samir.commonproduct.domain.SearchProductsUseCase
 import com.samir.commonproduct.domain.SortProductsUseCase
 import com.samir.model.Product
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.time.Duration.Companion.milliseconds
 
 @HiltViewModel
 class ProductViewModel @Inject constructor(
@@ -38,15 +36,16 @@ class ProductViewModel @Inject constructor(
             _uiState.value = _uiState.value.copy(isLoading = true, errorMessage = null)
             when (val result = getProductsUseCase()) {
                 is NetworkResult.Success -> {
-                    delay(2000.milliseconds)
                     allProducts = result.data
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }
@@ -68,10 +67,12 @@ class ProductViewModel @Inject constructor(
                     applySort()
                     _uiState.value = _uiState.value.copy(isLoading = false)
                 }
+
                 is NetworkResult.Error -> _uiState.value = _uiState.value.copy(
                     isLoading = false,
                     errorMessage = result.message,
                 )
+
                 NetworkResult.Loading -> Unit
             }
         }

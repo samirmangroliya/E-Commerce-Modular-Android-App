@@ -17,5 +17,6 @@ object NetworkConfigModule {
     fun provideNetworkConfig(): NetworkConfig = object : NetworkConfig {
         override val baseUrl = "https://dummyjson.com/"
         override val enableLogging = BuildConfig.DEBUG
-        override val authTokenProvider: (() -> String?)? = null    }
+        override val authTokenProvider: (() -> String?)? = null
+    }
 }

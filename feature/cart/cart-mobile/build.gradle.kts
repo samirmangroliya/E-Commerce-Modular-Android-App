@@ -12,6 +12,7 @@ dependencies {
     implementation(project(":feature:cart:cart-domain"))
     implementation(project(":core:ui"))
     implementation(project(":core:model"))
+    implementation(project(":core:navigation"))
 
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

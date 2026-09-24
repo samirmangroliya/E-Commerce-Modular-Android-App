@@ -1,5 +1,6 @@
 package com.samir.commonproduct.data
 
+import com.samir.model.Product
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -12,7 +13,7 @@ interface ProductApi {
     ): ProductListResponseDto
 
     @GET("products/{id}")
-    suspend fun getProductDetail(@Path("id") id: Int): ProductDto
+    suspend fun getProductDetail(@Path("id") id: Int): Product
 
     @GET("products/search")
     suspend fun searchProducts(@Query("q") query: String): ProductListResponseDto

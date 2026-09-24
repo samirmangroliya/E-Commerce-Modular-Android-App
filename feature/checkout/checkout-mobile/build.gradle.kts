@@ -12,6 +12,7 @@ dependencies {
     implementation(project(":feature:checkout:checkout-domain"))
     implementation(project(":core:ui"))
     implementation(project(":core:model"))
+    implementation(project(":core:navigation"))
 
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

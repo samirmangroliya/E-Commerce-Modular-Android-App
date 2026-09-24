@@ -20,7 +20,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             pluginManager.apply(applicationPlugin.get().pluginId)
 
             //2. Apply Google Service Plugin
-            val googleServicesPlugin =  libs.findPlugin("google-services").orElseThrow {
+            val googleServicesPlugin = libs.findPlugin("google-services").orElseThrow {
                 NoSuchElementException(
                     "Missing plugin entry 'google-services' in libs.versions.toml"
                 )
@@ -40,7 +40,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 }
 
                 compileOptions {
-                    val javaVersionInt = JavaVersion.toVersion(libs.getRequiredVersionInt("javaVersion"))
+                    val javaVersionInt =
+                        JavaVersion.toVersion(libs.getRequiredVersionInt("javaVersion"))
                     sourceCompatibility = javaVersionInt
                     targetCompatibility = javaVersionInt
                 }

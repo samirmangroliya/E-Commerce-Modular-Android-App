@@ -1,36 +1,47 @@
 package com.samir.ecommerceapp.screens
 
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.samir.ecommerceapp.routes.HomeRoute
-import kotlinx.coroutines.launch
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.samir.ecommerceapp.navigation.MainBottomBar
+import com.samir.ecommerceapp.navigation.MainNavHost
+import com.samir.navigation.AppRoutes
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
-    val snackBarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
+fun MainScreen() {
+
+    val navController = rememberNavController()
+
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route
+
+    val hideBottomBarRoutes = setOf(
+        AppRoutes.PRODUCT_DETAILS,
+        AppRoutes.CHECKOUT
+    )
+
+    val showBottomBar = currentRoute !in hideBottomBarRoutes
 
     Scaffold(
-        modifier = modifier.fillMaxSize(),
-        snackbarHost = { SnackbarHost(hostState = snackBarHostState) }) { innerPadding ->
-        HomeRoute(modifier = Modifier.padding(innerPadding)) { message ->
-            scope.launch {
-                snackBarHostState.currentSnackbarData?.dismiss()
-                snackBarHostState.showSnackbar(
-                    message = message, actionLabel = "Dismiss", duration = SnackbarDuration.Short
+        bottomBar = {
+            AnimatedVisibility(
+                visible = showBottomBar,
+            ) {
+                MainBottomBar(
+                    navController = navController
                 )
             }
         }
+    ) { paddingValues ->
+
+        MainNavHost(
+            navController = navController,
+            modifier = Modifier.padding(paddingValues)
+        )
     }
 }
-
-
-

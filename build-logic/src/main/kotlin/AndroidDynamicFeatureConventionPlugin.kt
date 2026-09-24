@@ -29,7 +29,8 @@ class AndroidDynamicFeatureConventionPlugin : Plugin<Project> {
                 }
 
                 compileOptions {
-                    val javaVersionInt = JavaVersion.toVersion(libs.getRequiredVersionInt("javaVersion"))
+                    val javaVersionInt =
+                        JavaVersion.toVersion(libs.getRequiredVersionInt("javaVersion"))
                     sourceCompatibility = javaVersionInt
                     targetCompatibility = javaVersionInt
                 }

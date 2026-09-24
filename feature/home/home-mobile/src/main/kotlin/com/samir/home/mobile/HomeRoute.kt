@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ChatBubble
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -34,15 +35,17 @@ import com.samir.ui.LoadingView
 @Composable
 fun HomeScreen(
     modifier: Modifier,
-    onProductClick: (Product) -> Unit,
+    onProductClick: (Int) -> Unit,
     onCartClick: () -> Unit,
+    onChatClick: () -> Unit,
     viewModel: HomeViewModel? = null,
 ) {
     if (LocalInspectionMode.current && viewModel == null) {
         HomeScreenContent(
             state = HomeUIState(isLoading = true),
-            onProductClick = { },
+            onProductClick = { onProductClick(it.id) },
             onCartClick = onCartClick,
+            onChatClick = onChatClick,
             onSearchQueryChanged = {},
             onRetry = {}
         )
@@ -52,9 +55,11 @@ fun HomeScreen(
         HomeScreenContent(
             state = state,
             onProductClick = {
-                actualViewModel.onProductClicked(it)
+                onProductClick(it.id)
+                actualViewModel.logProductClick(it)
             },
             onCartClick = onCartClick,
+            onChatClick = onChatClick,
             onSearchQueryChanged = actualViewModel::onSearchQueryChanged,
             onRetry = actualViewModel::loadProducts
         )
@@ -67,6 +72,7 @@ fun HomeScreenContent(
     state: HomeUIState,
     onProductClick: (Product) -> Unit,
     onCartClick: () -> Unit,
+    onChatClick: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onRetry: () -> Unit,
 ) {
@@ -78,14 +84,17 @@ fun HomeScreenContent(
                     IconButton(onClick = onCartClick) {
                         Icon(Icons.Default.ShoppingCart, contentDescription = "Cart")
                     }
+                    IconButton(onClick = onChatClick) {
+                        Icon(Icons.Default.ChatBubble, contentDescription = "Chat")
+                    }
                 },
             )
         },
     ) { padding ->
         Column(
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
+                .padding(top = padding.calculateTopPadding())
         ) {
 
             OutlinedTextField(
@@ -93,7 +102,7 @@ fun HomeScreenContent(
                 onValueChange = onSearchQueryChanged,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(horizontal = 16.dp),
                 label = { Text("Search products (e.g. phone)") },
                 singleLine = true,
                 shape = RoundedCornerShape(16.dp),
