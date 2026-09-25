@@ -99,8 +99,9 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_2
+          disable-animations: true
           script: |
-            adb devices -l
+            adb devices
             ./gradlew :app-mobile:connectedDevDebugAndroidTest --stacktrace
 
 
