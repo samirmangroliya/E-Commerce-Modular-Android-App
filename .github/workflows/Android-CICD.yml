@@ -92,17 +92,16 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Run Instrumented Tests
+      - name: Run Instrumented tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
           target: google_apis
           arch: x86_64
           profile: pixel_2
-          script: ./gradlew :app-mobile:connectedDevDebugAndroidTest --stacktrace
+          script: |
+            adb devices -l
+            ./gradlew :app-mobile:connectedDevDebugAndroidTest --stacktrace
 
 
   # ============================================================
